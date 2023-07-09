@@ -42,6 +42,11 @@
   justify-content: flex-end;
   padding: 4px;
   align-items: center;
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 @media (max-width: 768px) {

@@ -13,6 +13,8 @@ app.get("/", (req, res) => res.send("hello"));
 app.use("/users", User);
 app.use("/blogs", BLog);
 app.listen(8080, async () => {
-  await mongoose.connect("mongodb://127.0.0.1:27017/Users");
+  await mongoose.connect(
+    "mongodb+srv://faizan12:faizan12@cluster0.gckfcz2.mongodb.net/Users"
+  );
   console.log("server started on port 8080");
 });

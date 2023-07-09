@@ -5,11 +5,15 @@ import axios from "axios";
 import Post from "./Post";
 import Pagination from "./Pagination";
 function blogdata() {
-  return axios.get("http://127.0.0.1:8080/blogs");
+  return axios.get(
+    "https://blogtechdomebackend-production.up.railway.app/blogs"
+  );
 }
 
 function deleteBlog(id) {
-  return axios.delete(`http://localhost:8080/blogs/${id}`);
+  return axios.delete(
+    `https://blogtechdomebackend-production.up.railway.app/blogs/${id}`
+  );
 }
 
 function Home() {
@@ -51,41 +55,42 @@ function Home() {
   const firstPostIndex = lastPostIindex - postperpage;
   const newData = data.slice(firstPostIndex, lastPostIindex);
 
-  console.log("m", postperpage, newData);
+  console.log("page", postperpage, newData);
 
   return (
     <Box className={Style.main}>
-      <Heading ml="40%" color="black" as="u">
-        {" "}
-        ALL BLOGS
-      </Heading>
-      {loading && <p>It's loading</p>}
-      {!loading &&
-        newData?.map((elem, index) => (
-          <>
-            {console.log(elem)}
-            <Post
-              key={index}
-              index={index}
-              {...elem}
-              DeleteData={(id) => DeleteData(id)}
-            />
-          </>
-        ))}
-
-      <Box mt="30%" ml="25%">
-        {newData.length == 0 && (
-          <Heading color="yellow" as="u" fontSize={"30px"}>
-            No Blog Available Please create
-          </Heading>
-        )}
+      .
+      <Box mt="5%">
+        <Heading ml="40%" color="black" as="u">
+          ALL BLOGS
+        </Heading>
+        {loading && <p>It's loading</p>}
+        {!loading &&
+          newData?.map((elem, index) => (
+            <>
+              {console.log(elem)}
+              <Post
+                key={index}
+                index={index}
+                {...elem}
+                DeleteData={(id) => DeleteData(id)}
+              />
+            </>
+          ))}
+        <Box ml="25%">
+          {newData.length == 0 && (
+            <Heading color="yellow" as="u" fontSize={"30px"} mt="30%">
+              No Blog Available Please create
+            </Heading>
+          )}
+        </Box>
+        <Pagination
+          totalPages={data.length}
+          currentPage={currentPage}
+          postperPage={postperpage}
+          onClick={(value) => setCurrentPage(value)}
+        />
       </Box>
-      <Pagination
-        totalPages={data.length}
-        currentPage={currentPage}
-        postperPage={postperpage}
-        onClick={(value) => setCurrentPage(value)}
-      />
     </Box>
   );
 }

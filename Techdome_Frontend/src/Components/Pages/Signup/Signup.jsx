@@ -14,7 +14,10 @@ import { useNavigate } from "react-router-dom";
 
 function addDate(payload) {
   return axios
-    .post("http://localhost:8080/users/signup", payload)
+    .post(
+      "https://blogtechdomebackend-production.up.railway.app/users/signup",
+      payload
+    )
     .then((res) => res.data);
 }
 

@@ -12,8 +12,9 @@ function Pagination({ totalPages, currentPage, postperPage, onClick }) {
         <Button
           onClick={() => onClick(i + 1)}
           disabled={currentPage == i + 1}
-          bg={"brown"}
+          bg={"black"}
           ml="10px"
+          color="white"
         >
           {i + 1}
         </Button>

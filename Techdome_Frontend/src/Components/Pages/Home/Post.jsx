@@ -36,6 +36,9 @@ const Post = ({
       borderRadius="30px"
     >
       <Box>
+        <Button onClick={DeletBLog} bg="black">
+          ❌
+        </Button>
         <Text
           fontSize={["20px", "20px", "30px"]}
           as="b"
@@ -44,9 +47,6 @@ const Post = ({
         >
           {heading}
         </Text>
-        <Button ml="30%" onClick={DeletBLog}>
-          ❌
-        </Button>
       </Box>
 
       <Box gap="25px">

@@ -6,15 +6,24 @@ import {
   Auth_logout,
 } from "./auth.type";
 
-export const AuthLogin = (cred) => async (dispatch) => {
-  console.log("cred", cred);
+export const AuthLogin = (cred, toast) => async (dispatch) => {
+  console.log("cred", cred, toast);
   dispatch({ type: Auth_loading });
   try {
-    let res = await axios.post("http://localhost:8080/users/login", cred);
+    let res = await axios.post(
+      "https://blogtechdomebackend-production.up.railway.app/users/login",
+      cred
+    );
     // console.log(res.data)
     dispatch({ type: Auth_Succes, payload: res.data });
   } catch (err) {
     dispatch({ type: Auth_failed });
+    toast({
+      title: "Login Failed Please check you cred..",
+      status: "error",
+      duration: 9000,
+      isClosable: true,
+    });
   }
 };
 

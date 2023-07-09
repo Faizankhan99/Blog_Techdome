@@ -6,6 +6,7 @@ import {
   InputGroup,
   InputRightElement,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import style from "../AddBlog/addblog.module.css";
@@ -29,6 +30,7 @@ const blogdata = {
 export function ADDBLOGS() {
   const [blog, setBlog] = useState(blogdata);
   const [submit, setSubmit] = useState();
+  const toast = useToast();
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -36,12 +38,15 @@ export function ADDBLOGS() {
   }
 
   function AddBlog({ heading, content, author, imgUrl }) {
-    return axios.post("http://localhost:8080/blogs/", {
-      heading: heading,
-      content: content,
-      author: author,
-      imgUrl: imgUrl,
-    });
+    return axios.post(
+      "https://blogtechdomebackend-production.up.railway.app/blogs/",
+      {
+        heading: heading,
+        content: content,
+        author: author,
+        imgUrl: imgUrl,
+      }
+    );
   }
 
   function handlesubmit(e) {
@@ -50,7 +55,13 @@ export function ADDBLOGS() {
     AddBlog(blog)
       .then((res) => {
         console.log(res.data.message);
-        alert(res.data.message);
+        // alert(res.data.message);
+        toast({
+          title: "Blog Created sucessfully👍",
+          status: "success",
+          duration: 1000,
+          isClosable: true,
+        });
       })
       .catch((err) => {
         console.log(err);

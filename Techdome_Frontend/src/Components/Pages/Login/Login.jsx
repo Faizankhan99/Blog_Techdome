@@ -27,7 +27,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(AuthLogin(data));
+    dispatch(AuthLogin(data, toast));
   };
 
   useEffect(() => {

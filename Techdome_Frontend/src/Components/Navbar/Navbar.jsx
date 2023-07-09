@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, useToast } from "@chakra-ui/react";
 import React from "react";
 import style from "../Navbar/Navbar.module.css";
 import { NavLink } from "react-router-dom";
@@ -9,6 +9,8 @@ function Navbar() {
   const token = useSelector((store) => store.auth.token);
   const dispatch = useDispatch();
   console.log(token);
+  const toast = useToast();
+
   const Links = [
     { id: 1, title: "Blog", to: "/" },
     { id: 2, title: "Sign up", to: "signup" },
@@ -21,6 +23,12 @@ function Navbar() {
 
   const Logout = () => {
     dispatch(LogoutUser());
+    toast({
+      title: "Logout Sucessfull",
+      status: "success",
+      duration: 1000,
+      isClosable: true,
+    });
   };
 
   return (
