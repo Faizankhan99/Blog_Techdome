@@ -16,7 +16,7 @@ I have also used some local Data base to collect the data from main website.
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
 <h2 align="center">Login page</h2>
-<img src="https://github.com/Faizankhan99/Blog_Techdome/blob/main/Techdome_Frontend/src/assets/Login.png" alt="Login page>
+<img src="https://github.com/Faizankhan99/Blog_Techdome/blob/main/Techdome_Frontend/src/assets/Login.png" alt="Login page />
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
 <h2 align="center">ADD Blog</h2>
