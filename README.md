@@ -1,3 +1,7 @@
+# Sample Credential :- 
+Email:-   abc@gmail.com
+password :- abc123
+
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
 
